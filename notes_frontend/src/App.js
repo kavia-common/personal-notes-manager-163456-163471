@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './design-system.css';
 import './App.css';
+import Splash from './screens/Splash';
 import SignIn from './screens/SignIn';
 
 // PUBLIC_INTERFACE
 function App() {
   const [theme, setTheme] = useState('light');
+  const [screen, setScreen] = useState('splash');
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -14,6 +16,8 @@ function App() {
   const toggleTheme = () => {
     setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
   };
+
+  const goToSignIn = () => setScreen('signin');
 
   return (
     <div className="App">
@@ -27,7 +31,11 @@ function App() {
         </button>
       </header>
       <main>
-        <SignIn />
+        {screen === 'splash' ? (
+          <Splash onGetStarted={goToSignIn} />
+        ) : (
+          <SignIn />
+        )}
       </main>
     </div>
   );
