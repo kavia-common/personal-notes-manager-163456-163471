@@ -1,0 +1,77 @@
+@import "../design-system.css";
+
+/* Page background */
+.splash-page {
+  min-height: 100vh;
+  background: var(--color-surface);
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+/* Center content */
+.splash-content {
+  display: grid;
+  place-items: center;
+  gap: var(--space-16);
+  padding: var(--space-32) var(--space-24);
+}
+
+/* Logo mark: circle with brand color and inner accent dot to suggest identity */
+.logo-mark {
+  width: 160px; /* maps to style_0 border_radius 80 (80px radius => 160 diameter) */
+  height: 160px;
+  border-radius: 80px;
+  background: var(--color-brand);
+  display: grid;
+  place-items: center;
+  box-shadow: var(--shadow-soft);
+}
+
+.logo-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-20);
+  background: var(--color-white);
+  box-shadow: 0 0 0 6px rgba(255,255,255,0.25) inset;
+}
+
+/* Title */
+.splash-title {
+  margin: var(--space-12) 0 0 0;
+  font: var(--font-30-semi-line45);
+  color: var(--color-neutral-100);
+}
+
+/* Subtitle */
+.splash-subtitle {
+  margin: 0 0 var(--space-8) 0;
+  font: var(--font-16-regular-line24);
+  color: var(--color-neutral-50);
+}
+
+/* CTA */
+.splash-cta {
+  width: 220px;
+  margin-top: var(--space-8);
+}
+
+/* Footer */
+.splash-footer {
+  display: grid;
+  place-items: center;
+  padding: var(--space-24);
+  color: var(--color-neutral-60);
+}
+
+.footer-text {
+  font: var(--font-14-regular-line21);
+}
+
+/* Dark theme adjustments leverage tokens from [data-theme="dark"] in design-system */
+[data-theme="dark"] .splash-title {
+  color: var(--color-white);
+}
+
+[data-theme="dark"] .splash-subtitle {
+  color: var(--color-neutral-40);
+}

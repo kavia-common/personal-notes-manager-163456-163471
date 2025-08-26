@@ -1,0 +1,298 @@
+@import "../design-system.css";
+
+/* Page container */
+.signin-page {
+  min-height: 100vh;
+  background: var(--color-surface);
+  display: grid;
+  place-items: center;
+  padding: var(--space-24);
+}
+
+/* Card */
+.signin-card {
+  background: var(--color-white);
+  color: var(--color-neutral-100);
+  width: 100%;
+  max-width: 420px;
+  border-radius: var(--radius-12);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-32);
+}
+
+/* Header */
+.signin-header {
+  text-align: left;
+  margin-bottom: var(--space-24);
+}
+
+.signin-title {
+  margin: 0;
+  display: grid;
+  gap: var(--space-4);
+}
+
+.signin-hello {
+  font: var(--font-30-semi-line45); /* typo_60 */
+  color: var(--color-neutral-100);
+  display: block;
+}
+
+.signin-welcome {
+  font: var(--font-20-regular-line30); /* typo_61 equivalent */
+  color: var(--color-neutral-100);
+  display: block;
+}
+
+/* Form */
+.signin-form {
+  display: grid;
+  gap: var(--space-16);
+}
+
+.form-field {
+  display: grid;
+  gap: var(--space-8);
+}
+
+.form-label {
+  font: var(--font-14-semi-line21);
+  color: var(--color-neutral-70);
+}
+
+:root, [data-theme="dark"] {
+  --input-height: 55px;  /* Figma input height */
+  --btn-height: 60px;    /* Figma big button height */
+}
+
+.input,
+.input[type="text"],
+.input[type="email"],
+.input[type="password"] {
+  height: var(--input-height);
+  border-radius: var(--input-radius);
+  border: 1.5px solid var(--input-border); /* style_30/58 mapping */
+  background: var(--input-bg);
+  color: var(--input-text);
+  padding: 0 var(--space-14);
+  outline: none;
+  font: var(--font-16-regular-line24);
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.input::placeholder {
+  color: var(--input-placeholder);
+}
+
+.input:focus {
+  border-color: var(--color-brand);
+  box-shadow: 0 0 0 3px rgba(18,149,117,0.12);
+}
+
+/* Password reveal */
+.input-password-wrap {
+  position: relative;
+  display: grid;
+}
+
+.input-password-wrap .btn-ghost {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 40px;
+  border-radius: var(--radius-8);
+  padding: 0 var(--space-10);
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--color-brand);
+  font: var(--font-14-semi-line21);
+  cursor: pointer;
+}
+
+.input-password-wrap .btn-ghost:hover {
+  background: rgba(18,149,117,0.08);
+}
+
+/* Error */
+.has-error .input {
+  border-color: var(--color-warn);
+}
+
+.form-error {
+  font: var(--font-11-regular-line16);
+  color: var(--color-warn);
+}
+
+/* Row */
+.form-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-12);
+  margin-top: var(--space-4);
+}
+
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  color: var(--color-neutral-70);
+  font: var(--font-14-regular-line21);
+}
+
+.checkbox input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--color-brand);
+  border-radius: var(--radius-4);
+}
+
+/* Primary Button */
+.btn-primary {
+  height: var(--btn-height);
+  border: none;
+  border-radius: var(--btn-primary-radius);
+  background: var(--btn-primary-bg); /* style_11 color_129575 */
+  color: var(--btn-primary-text);
+  font: var(--font-16-semi-line24);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-12);
+  transition: transform .1s ease, box-shadow .2s ease, opacity .2s ease;
+  box-shadow: var(--shadow-soft);
+  width: 100%;
+}
+
+.btn-primary:hover {
+  opacity: 0.95;
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Arrow icon to match Icon/General/Arrow-Right */
+.btn-primary-arrow .icon-arrow {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  position: relative;
+}
+.btn-primary-arrow .icon-arrow::before,
+.btn-primary-arrow .icon-arrow::after {
+  content: "";
+  position: absolute;
+  background: var(--btn-primary-text);
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.btn-primary-arrow .icon-arrow::before {
+  top: 9px;
+  width: 14px;
+  height: 2px;
+  border-radius: 1px;
+}
+.btn-primary-arrow .icon-arrow::after {
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid var(--btn-primary-text);
+  border-top: 2px solid var(--btn-primary-text);
+  transform: rotate(45deg);
+  right: 2px;
+  top: 6px;
+  left: auto;
+}
+
+/* Divider */
+.divider {
+  position: relative;
+  display: grid;
+  place-items: center;
+  margin: var(--space-8) 0 var(--space-8);
+  height: 24px;
+}
+
+.divider::before {
+  content: "";
+  position: absolute;
+  inset: 50% 0 auto 0;
+  height: 1px;
+  background: var(--color-neutral-15);
+}
+
+.divider-text {
+  position: relative;
+  padding: 0 var(--space-10);
+  background: var(--color-white);
+  color: var(--color-neutral-50);
+  font: var(--font-14-regular-line21);
+}
+
+/* Social buttons */
+.social-row {
+  display: grid;
+  grid-template-columns: repeat(2, 44px); /* 44x44 per Figma */
+  justify-content: center;
+  gap: var(--space-12);
+  margin: var(--space-8) 0;
+}
+
+.btn-social-compact {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-10); /* style_126 */
+  border: 1.5px solid var(--color-neutral-15);
+  background: var(--color-white);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+}
+
+.btn-social-compact:hover {
+  background: var(--color-neutral-05);
+}
+
+.social-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+}
+
+.social-icon.google {
+  background: linear-gradient(135deg, #DB4437 25%, #F4B400 25% 50%, #0F9D58 50% 75%, #4285F4 75%);
+}
+
+.social-icon.facebook {
+  background: #1877F2;
+}
+
+/* Footer hint */
+.signup-hint {
+  text-align: center;
+  margin-top: var(--space-16);
+  color: var(--color-neutral-70);
+  font: var(--font-14-regular-line21);
+}
+
+.link {
+  color: var(--link-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .signin-card {
+    padding: var(--space-24);
+  }
+}
