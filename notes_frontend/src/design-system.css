@@ -1,0 +1,104 @@
+:root {
+  /* Colors (subset of the provided tokens mapped to usable CSS variables) */
+  --color-white: #ffffff; /* color_ffffff */
+  --color-black: #000000; /* color_000000 */
+  --color-neutral-100: #121212; /* color_121212 */
+  --color-neutral-90: #292929; /* color_292929 */
+  --color-neutral-80: #303030; /* color_303030 */
+  --color-neutral-70: #484848; /* color_484848 */
+  --color-neutral-60: #797979; /* color_797979 */
+  --color-neutral-50: #828282; /* color_828282 */
+  --color-neutral-40: #a9a9a9; /* color_a9a9a9 */
+  --color-neutral-30: #c4c4c4; /* color_c4c4c4 */
+  --color-neutral-20: #d8d8d8; /* color_d8d8d8 */
+  --color-neutral-15: #d9d9d9; /* color_d9d9d9 */
+  --color-neutral-10: #e9fffa; /* color_e9fffa (used as soft bg) */
+  --color-neutral-05: #f4f4f4; /* color_f4f4f4 */
+  --color-surface: #f6faf9; /* color_f6faf9 */
+  --color-brand: #129575; /* color_129575 */
+  --color-brand-2: #71b1a1; /* color_71b1a1 */
+  --color-accent: #ff9c00; /* color_ff9c00 */
+  --color-warn: #ff3d00; /* color_ff3d00 */
+  --color-info: #1976d2; /* color_1976d2 */
+  --color-success: #4caf50; /* color_4caf50 */
+
+  /* Typography — select common sizes/weights from provided tokens (family: Poppins/Open Sans) */
+  --font-family-sans: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-family-alt: "Open Sans", var(--font-family-sans);
+
+  /* Sizes (px) from tokens like typo_6/7/14/15/20/24/26/32... mapped to a sane scale */
+  --font-11-regular-line16: 11px/16.5px var(--font-family-sans);
+  --font-11-medium-line16: 11px/16.5px var(--font-family-sans);
+  --font-14-regular-line21: 14px/21px var(--font-family-sans);
+  --font-14-semi-line21: 600 14px/21px var(--font-family-sans);
+  --font-16-regular-line24: 16px/24px var(--font-family-sans);
+  --font-16-semi-line24: 600 16px/24px var(--font-family-sans);
+  --font-18-semi-line27: 600 18px/27px var(--font-family-sans);
+  --font-20-regular-line30: 20px/30px var(--font-family-sans);
+  --font-20-semi-line30: 600 20px/30px var(--font-family-sans);
+  --font-30-semi-line45: 600 30px/45px var(--font-family-sans);
+
+  /* Radii (from tokens) */
+  --radius-4: 4px;
+  --radius-6: 6px;
+  --radius-8: 8px;
+  --radius-9: 9px;
+  --radius-10: 10px;
+  --radius-12: 12px;
+  --radius-20: 20px;
+
+  /* Spacing scale (picked from the spacing list; normalized for practicality) */
+  --space-0: 0px;
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-10: 10px;
+  --space-12: 12px;
+  --space-14: 14px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-28: 28px;
+  --space-32: 32px;
+  --space-36: 36px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-56: 56px;
+  --space-64: 64px;
+
+  /* Shadows (used subtlely) */
+  --shadow-soft: 0 8px 25px rgba(32, 32, 32, 0.15); /* from shadow_1 */
+  --shadow-card: 0 0 20px rgba(0,0,0,0.10); /* from shadow_3 */
+}
+
+[data-theme="dark"] {
+  --color-surface: #181818; /* color_181818 */
+  --color-neutral-05: #303030;
+  --color-neutral-15: #484848;
+  --color-neutral-20: #484848;
+  --color-neutral-30: #797979;
+  --color-neutral-40: #a9a9a9;
+  --color-neutral-50: #c4c4c4;
+  --color-neutral-60: #d8d8d8;
+  --color-neutral-70: #e9fffa;
+  --color-white: #121212;
+  --color-black: #ffffff;
+}
+
+:root, [data-theme="dark"] {
+  /* Form tokens */
+  --input-bg: var(--color-white);
+  --input-border: var(--color-neutral-15);
+  --input-text: var(--color-neutral-100);
+  --input-placeholder: var(--color-neutral-40);
+  --input-radius: var(--radius-10);
+  --input-height: 48px;
+
+  --btn-primary-bg: var(--color-brand);
+  --btn-primary-text: var(--color-white);
+  --btn-primary-radius: var(--radius-10);
+  --btn-height: 48px;
+
+  --link-color: var(--color-brand-2);
+}
