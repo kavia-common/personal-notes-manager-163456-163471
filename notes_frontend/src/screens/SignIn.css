@@ -27,15 +27,21 @@
 }
 
 .signin-title {
-  margin: 0 0 var(--space-8) 0;
-  font: var(--font-30-semi-line45);
-  color: var(--color-neutral-100);
+  margin: 0;
+  display: grid;
+  gap: var(--space-4);
 }
 
-.signin-subtitle {
-  margin: 0;
-  font: var(--font-16-regular-line24);
-  color: var(--color-neutral-50);
+.signin-hello {
+  font: var(--font-30-semi-line45); /* typo_60 */
+  color: var(--color-neutral-100);
+  display: block;
+}
+
+.signin-welcome {
+  font: var(--font-20-regular-line30); /* typo_61 equivalent */
+  color: var(--color-neutral-100);
+  display: block;
 }
 
 /* Form */
@@ -54,13 +60,18 @@
   color: var(--color-neutral-70);
 }
 
+:root, [data-theme="dark"] {
+  --input-height: 55px;  /* Figma input height */
+  --btn-height: 60px;    /* Figma big button height */
+}
+
 .input,
 .input[type="text"],
 .input[type="email"],
 .input[type="password"] {
   height: var(--input-height);
   border-radius: var(--input-radius);
-  border: 1.5px solid var(--input-border); /* style_58/116 mapping */
+  border: 1.5px solid var(--input-border); /* style_30/58 mapping */
   background: var(--input-bg);
   color: var(--input-text);
   padding: 0 var(--space-14);
@@ -89,7 +100,7 @@
   right: 6px;
   top: 50%;
   transform: translateY(-50%);
-  height: calc(var(--btn-height) - 10px);
+  height: 40px;
   border-radius: var(--radius-8);
   padding: 0 var(--space-10);
   border: 1px solid transparent;
@@ -142,15 +153,17 @@
   height: var(--btn-height);
   border: none;
   border-radius: var(--btn-primary-radius);
-  background: var(--btn-primary-bg); /* color_129575 */
+  background: var(--btn-primary-bg); /* style_11 color_129575 */
   color: var(--btn-primary-text);
   font: var(--font-16-semi-line24);
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: var(--space-12);
   transition: transform .1s ease, box-shadow .2s ease, opacity .2s ease;
   box-shadow: var(--shadow-soft);
+  width: 100%;
 }
 
 .btn-primary:hover {
@@ -160,6 +173,39 @@
 
 .btn-primary:active {
   transform: translateY(0);
+}
+
+/* Arrow icon to match Icon/General/Arrow-Right */
+.btn-primary-arrow .icon-arrow {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  position: relative;
+}
+.btn-primary-arrow .icon-arrow::before,
+.btn-primary-arrow .icon-arrow::after {
+  content: "";
+  position: absolute;
+  background: var(--btn-primary-text);
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.btn-primary-arrow .icon-arrow::before {
+  top: 9px;
+  width: 14px;
+  height: 2px;
+  border-radius: 1px;
+}
+.btn-primary-arrow .icon-arrow::after {
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid var(--btn-primary-text);
+  border-top: 2px solid var(--btn-primary-text);
+  transform: rotate(45deg);
+  right: 2px;
+  top: 6px;
+  left: auto;
 }
 
 /* Divider */
@@ -190,41 +236,40 @@
 /* Social buttons */
 .social-row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 44px); /* 44x44 per Figma */
+  justify-content: center;
   gap: var(--space-12);
+  margin: var(--space-8) 0;
 }
 
-.btn-social {
-  height: var(--btn-height);
-  border-radius: var(--radius-10);
+.btn-social-compact {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-10); /* style_126 */
   border: 1.5px solid var(--color-neutral-15);
   background: var(--color-white);
-  color: var(--color-neutral-100);
-  font: var(--font-16-regular-line24);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-10);
+  display: grid;
+  place-items: center;
   cursor: pointer;
+  box-shadow: var(--shadow-soft);
 }
 
-.btn-social:hover {
+.btn-social-compact:hover {
   background: var(--color-neutral-05);
 }
 
-.social-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  display: inline-block;
+.social-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
 }
 
-.social-dot.google {
-  background: #DB4437; /* Google's brand red */
+.social-icon.google {
+  background: linear-gradient(135deg, #DB4437 25%, #F4B400 25% 50%, #0F9D58 50% 75%, #4285F4 75%);
 }
 
-.social-dot.facebook {
-  background: #1877F2; /* Facebook blue */
+.social-icon.facebook {
+  background: #1877F2;
 }
 
 /* Footer hint */

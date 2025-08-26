@@ -38,8 +38,10 @@ const SignIn = () => {
     <div className="signin-page">
       <div className="signin-card" role="region" aria-label="Sign In">
         <header className="signin-header">
-          <h1 className="signin-title">Sign In</h1>
-          <p className="signin-subtitle">Welcome back! Please enter your details.</p>
+          <h1 className="signin-title">
+            <span className="signin-hello">Hello,</span>
+            <span className="signin-welcome">Welcome Back!</span>
+          </h1>
         </header>
 
         <form className="signin-form" onSubmit={submit} noValidate>
@@ -49,7 +51,7 @@ const SignIn = () => {
               id="email"
               name="email"
               type="email"
-              placeholder="you@example.com"
+              placeholder="Enter Email"
               value={values.email}
               onChange={onChange}
               className="input"
@@ -62,13 +64,13 @@ const SignIn = () => {
           </div>
 
           <div className={`form-field ${errors.password ? "has-error" : ""}`}>
-            <label htmlFor="password" className="form-label">Password</label>
+            <label htmlFor="password" className="form-label">Enter Password</label>
             <div className="input-password-wrap">
               <input
                 id="password"
                 name="password"
                 type={showPassword ? "text" : "password"}
-                placeholder="Enter your password"
+                placeholder="Enter Password"
                 value={values.password}
                 onChange={onChange}
                 className="input"
@@ -97,20 +99,21 @@ const SignIn = () => {
             <a href="#forgot" className="link">Forgot Password?</a>
           </div>
 
-          <button className="btn-primary" type="submit">Sign In</button>
+          <button className="btn-primary btn-primary-arrow" type="submit">
+            <span>Sign In</span>
+            <span className="icon-arrow" aria-hidden="true" />
+          </button>
 
-          <div className="divider" role="separator" aria-label="Continue with other providers">
-            <span className="divider-text">or continue with</span>
+          <div className="divider" role="separator" aria-label="Or Sign in With other providers">
+            <span className="divider-text">Or Sign in With</span>
           </div>
 
           <div className="social-row">
-            <button className="btn-social" type="button" aria-label="Continue with Google">
-              <span className="social-dot google" />
-              <span>Google</span>
+            <button className="btn-social-compact" type="button" aria-label="Continue with Google">
+              <span className="social-icon google" aria-hidden="true" />
             </button>
-            <button className="btn-social" type="button" aria-label="Continue with Facebook">
-              <span className="social-dot facebook" />
-              <span>Facebook</span>
+            <button className="btn-social-compact" type="button" aria-label="Continue with Facebook">
+              <span className="social-icon facebook" aria-hidden="true" />
             </button>
           </div>
 
